@@ -6,7 +6,7 @@ import Movie from './Movie';
 let API_key = "&api_key=4913407cf8779743004ecf4de56a631e";
 let base_url = "https://api.themoviedb.org/3";
 let url = base_url + "/discover/movie?sort_by=popularity.desc" + API_key;
-let arr = ["Popular" , "Trending" , "TV series" ];
+let arr = ["Popular" , "Trending" , "Series"];
 const Home = () => {
     const [movieData , setData] = useState([]);
     const [url_setUp , setUrl] = useState(url);
@@ -29,12 +29,11 @@ const Home = () => {
             url = base_url + '/trending/all/day?language=en-US' + API_key;
         }
 
-        if(movieType == "Tv series")  
+        if(movieType == "Series")  
         {
-            url = base_url + '/tv/top_rated?language=en-US' + API_key;
+            url = base_url + '/discover/tv?include_adult=false&include_null_first_air_dates=false&language=en-US&page=1&sort_by=popularity.desc' + API_key;
         }
 
-        setUrl(url);
     }
 
   return (
@@ -51,7 +50,8 @@ const Home = () => {
                 }
                 <li><a href='#'>Popular</a></li>
                 <li><a href='#'>Trending</a></li>
-                <li><a href='#'>Tv series</a></li>
+                <li><a href='#'>Series</a></li>
+                
             </ul>
         </nav>
         <form>
