@@ -2,7 +2,7 @@ import React from 'react'
 
 
 const Movie=(movie)=>{
-    console.log(movie.info);
+    //console.log(movie.info);
     let img_path="https://image.tmdb.org/t/p/w500";
     return(
         <>

@@ -10,11 +10,11 @@ let arr = ["Popular" , "Trending" , "Series"];
 const Home = () => {
     const [movieData , setData] = useState([]);
     const [url_setUp , setUrl] = useState(url);
-
+    const [search , setSearch] = useState();
     useEffect(() => {
       fetch(url_setUp).then(res => res.json()).then(data =>{
         setData(data.results);
-        console.log(data.results);
+        //console.log(data.results);
       })
     }, [url_setUp]);
 
@@ -31,16 +31,55 @@ const Home = () => {
 
         if(movieType == "Series")  
         {
-            url = base_url + '/discover/tv?include_adult=false&include_null_first_air_dates=false&language=en-US&page=1&sort_by=popularity.desc' + API_key;
+            url = base_url + '/trending/tv/day?language=en-US' + API_key;
         }
+        setUrl(url);
 
+    }
+
+    const searchMovie = (evt) => {
+        if (evt.key == "Enter") 
+        {
+            
+            url = base_url + "/search/movie?api_key=4913407cf8779743004ecf4de56a631e&query=" + search;
+            setUrl(url);
+            setSearch(" ");
+        }
     }
 
   return (
     <>
     <div className='header'>
+
+    <div className="bars">
+
+    <div className="cover">Entertainment Hub</div>
+
+    <form>
+            <div className='search-button'>
+                <input type='text' 
+                placeholder='Enter Movie Name' 
+                className='inputText' 
+                onChange={(e) => {setSearch(e.target.value)}} 
+                value = {search}
+                onKeyPress = {searchMovie}>
+                </input>
+                <button>
+                <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </form>
+
+        </div>
+
+        
+    </div>
+        
+        
         <nav>
             <ul>
+
+                 
                 {
                     arr.map((value) => {
                         return(
@@ -48,22 +87,14 @@ const Home = () => {
                         )
                     })
                 }
-                <li><a href='#'>Popular</a></li>
-                <li><a href='#'>Trending</a></li>
-                <li><a href='#'>Series</a></li>
+                
                 
             </ul>
         </nav>
-        <form>
-            <div className='search-button'>
-                <input type='text' placeholder='Enter Movie Name' className='inputText'>
-                </input>
-                <button>
-                <i class="fas fa-search"></i>
-                </button>
-            </div>
-        </form>
-    </div>
+        
+        
+        
+        
     <div className='container'>
         {
             (movieData.length === 0) ? <p className = "notfound">Not Found</p>: movieData.map((res,pos) =>{
@@ -81,4 +112,4 @@ const Home = () => {
 export default Home
 
 
-//https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=4913407cf8779743004ecf4de56a631e
+//discover/tv?include_adult=false&include_null_first_air_dates=false&language=en-US&page=1&sort_by=popularity.desc
