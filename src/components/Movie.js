@@ -12,7 +12,7 @@ const Movie=(movie)=>{
                 <div className='box'>
                     <h4 className='title'>{movie.info.title}  {movie.info.name}</h4>
                     <p className='rating'>{movie.info.vote_average}</p>
-                    <p className='runtime'></p>
+                    
                     
                 </div>
                 <div className='overview'>

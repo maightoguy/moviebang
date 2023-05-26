@@ -23,7 +23,7 @@ const Home = () => {
         if(movieType == "Popular")
         {
             url = base_url + "/discover/movie?sort_by=popularity.desc" + API_key;
-            console.log(url);
+            
         }
 
         if(movieType == "Trending") 
