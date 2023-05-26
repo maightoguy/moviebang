@@ -19,18 +19,18 @@ const Home = () => {
     }, [url_setUp]);
 
     const getData = (movieType) => {
-        if(movieType == "Popular")
+        if(movieType === "Popular")
         {
             url = base_url + "/discover/movie?sort_by=popularity.desc" + API_key;
             
         }
 
-        if(movieType == "Trending") 
+        if(movieType === "Trending") 
         {
             url = base_url + '/trending/movie/day?language=en-US' + API_key;
         }
 
-        if(movieType == "Series")  
+        if(movieType === "Series")  
         {
             url = base_url + '/discover/tv?language=en-US&page=1&sort_by=popularity.desc' + API_key;
             
@@ -46,7 +46,7 @@ const Home = () => {
     }
 
     const searchMovie = (evt) => {
-        if (evt.key == "Enter") 
+        if (evt.key === "Enter") 
         {
             
             url = base_url + "/search/movie?api_key=4913407cf8779743004ecf4de56a631e&query=" + search;
@@ -91,7 +91,7 @@ const Home = () => {
                 {
                     arr.map((value) => {
                         return(
-                            <li><a href="#" name={value} onClick={(e)=>{getData(e.target.name)}}>{value}</a></li>
+                            <li><a href="/#" name={value} onClick={(e)=>{getData(e.target.name)}}>{value}</a></li>
                         )
                     })
                 }
