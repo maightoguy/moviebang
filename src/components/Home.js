@@ -1,4 +1,3 @@
-import { click } from "@testing-library/user-event/dist/click";
 import React, { useEffect, useState } from "react";
 import Movie from './Movie';
 
