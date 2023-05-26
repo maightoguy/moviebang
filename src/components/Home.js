@@ -1,3 +1,4 @@
+import { click } from "@testing-library/user-event/dist/click";
 import React, { useEffect, useState } from "react";
 import Movie from './Movie';
 
@@ -22,17 +23,25 @@ const Home = () => {
         if(movieType == "Popular")
         {
             url = base_url + "/discover/movie?sort_by=popularity.desc" + API_key;
+            console.log(url);
         }
 
         if(movieType == "Trending") 
         {
-            url = base_url + '/trending/all/day?language=en-US' + API_key;
+            url = base_url + '/trending/movie/day?language=en-US' + API_key;
         }
 
         if(movieType == "Series")  
         {
-            url = base_url + '/trending/tv/day?language=en-US' + API_key;
+            url = base_url + '/discover/tv?language=en-US&page=1&sort_by=popularity.desc' + API_key;
+            
         }
+        /* 
+        Working links
+        "/discover/movie?sort_by=popularity.desc"
+        '/trending/movie/day?language=en-US'
+        '//discover/tv?language=en-US&page=1&sort_by=popularity.desc'
+        */
         setUrl(url);
 
     }
@@ -112,4 +121,3 @@ const Home = () => {
 export default Home
 
 
-//discover/tv?include_adult=false&include_null_first_air_dates=false&language=en-US&page=1&sort_by=popularity.desc

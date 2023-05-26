@@ -1,15 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&family=Poppins:ital,wght@1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&family=Poppins:ital,wght@1,300&family=Rubik&display=swap');
 
 *{
     padding: 0;
     margin: 0;
-    font-family: 'Overpass', sans-serif;
     font-family: 'Poppins', sans-serif;
+    
 }
 
 :root{
     --primary-color:#255a85;
     --secondary-color: #4983aa;
+    --primary-font: font-family: 'Poppins', sans-serif;
+    --secondary-font: font-family: 'Rubik', sans-serif;
 }
 
 body{
@@ -58,6 +60,7 @@ nav ul li {
 nav ul li a{
     text-decoration: none;
     color: rgb(255, 255, 255);
+    font-family: var(--primary-font);
     font-size: 1.2rem;
     font-weight: bold;
     padding: 0.2rem 0.6rem;
@@ -182,7 +185,8 @@ nav ul li a:focus::before{
     transition: all 0.4s ease-in-out;
     overflow-y: auto;
     transform: translateY(101%);
-    font-size: 0.7rem;
+    font-size: 1.0rem;
+    font-weight: bold;
 
 }
 

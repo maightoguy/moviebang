@@ -10,11 +10,14 @@ const Movie=(movie)=>{
             <img src={img_path + movie.info.poster_path} className="poster" alt="Movie Poster"></img>
             <div className='movie-details'>
                 <div className='box'>
-                    <h4 className='title'>{movie.info.title}</h4>
+                    <h4 className='title'>{movie.info.title}  {movie.info.name}</h4>
                     <p className='rating'>{movie.info.vote_average}</p>
+                    <p className='runtime'></p>
+                    
                 </div>
                 <div className='overview'>
-                    <h1>{movie.info.overview}</h1>
+                    <h1>Overview</h1>
+                    <p>{movie.info.overview}</p>
                 </div>
             </div>
         </div>
